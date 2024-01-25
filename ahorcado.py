@@ -8,11 +8,6 @@ mydb = mysql.connector.connect(
     password="stitch2012",
     database="ahorcado",
 )
-
-#Cerrar sesion
-def cerrar(mydb):
-    if mydb:
-        mydb.close()
     
 # Función para crear una cuenta
 def crear_cuenta(id_usuario):
@@ -75,7 +70,6 @@ def juego_ahorcado(usuario_id):
                 cursor = mydb.cursor()
                 cursor.execute("UPDATE usuarios SET victorias = victorias + 1 WHERE id = %s", (usuario_id,))
                 mydb.commit()
-                cerrar(mydb)
                 break
         else:
             intentos -= 1
@@ -86,8 +80,7 @@ def juego_ahorcado(usuario_id):
         cursor = mydb.cursor()
         cursor.execute("UPDATE usuarios SET intentos = intentos + 1 WHERE id = %s", (usuario_id,))
         mydb.commit()
-        cerrar(mydb)
-
+        
 # Código para el menú de inicio
 while True:
     print("1. Crear cuenta")
