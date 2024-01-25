@@ -7,10 +7,10 @@
 Al combinar estos elementos, se logra la creación de un juego "Ahorcado" con Python que se conecta a una base de datos de MySQL, asegurando la seguridad de las contraseñas mediante el cifrado antes de su almacenamiento. Este enfoque integral ofrece una experiencia de juego interactiva y segura para los usuarios, al tiempo que garantiza la integridad de los datos almacenados en la base de datos.
 ## Capturas
 
-![App Screenshot](![ahorcado py](https://github.com/punchulo/PY/assets/63676351/250bde05-3028-4a78-8d28-4778599b170f)
+(![ahorcado py](https://github.com/punchulo/PY/assets/63676351/250bde05-3028-4a78-8d28-4778599b170f)
 )
 
-![App Screenshot](![image](https://github.com/punchulo/PY/assets/63676351/791d5ec0-3484-4cbe-bc79-f565815005a3)
+(![image](https://github.com/punchulo/PY/assets/63676351/791d5ec0-3484-4cbe-bc79-f565815005a3)
 )
 
 ## Implementación
