@@ -2,7 +2,7 @@
 # Python (connection with MySQL)
 
 
-"Hangman/Ahorcalo" with Python and the connection to a MySQL database, in addition to the implementation of password encryption.
+"Hangman/Ahorcado" with Python and the connection to a MySQL database, in addition to the implementation of password encryption.
 
 By combining these elements, the creation of a "Hangman/ahorcado" game with Python that connects to a MySQL database is achieved, ensuring the security of passwords through encryption before storage. This comprehensive approach offers an interactive and secure gaming experience for users, while ensuring the integrity of the data stored in the database.
 ## Screenshots
