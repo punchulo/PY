@@ -35,11 +35,3 @@ mydb = mysql.connector.connect(
 ## Autor
 
 - [@Punchulo](https://www.github.com/punchulo)
-
-
-# Python(conexion con MySQL)
-
-
-"Ahorcado" con Python y la conexión a una base de datos de MySQL, además de la implementación de cifrado de contraseñas.
-
-Al combinar estos elementos, se logra la creación de un juego "Ahorcado" con Python que se conecta a una base de datos de MySQL, asegurando la seguridad de las contraseñas mediante el cifrado antes de su almacenamiento. Este enfoque integral ofrece una experiencia de juego interactiva y segura para los usuarios, al tiempo que garantiza la integridad de los datos almacenados en la base de datos.
