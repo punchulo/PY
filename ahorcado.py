@@ -1,21 +1,42 @@
 import random
 import mysql.connector
 
-#Establecemos la conexion a la base de datos "ahorcado".
+# Establecemos la conexión a la base de datos "ahorcado"
 mydb = mysql.connector.connect(
-  host="localhost",
-  user="root",
-  password="stitch2012",
-  database="ahorcado",
-
+    host="localhost",
+    user="root",
+    password="stitch2012",
+    database="ahorcado",
 )
 
-#Selecciona una de las palabras en la lista.
+# Función para crear una cuenta
+def crear_cuenta(id_usuario):
+    usuario = input("Ingresa un nombre de usuario: ")
+    contraseña = input("Ingresa una contraseña: ")
+    cursor = mydb.cursor()
+    cursor.execute("INSERT INTO usuarios (id, usuario, contraseña, intentos, victorias) VALUES (%s, %s, %s, %s, %s)", (id_usuario, usuario, contraseña, 0, 0))
+    mydb.commit()
+    print("¡Cuenta creada con éxito!")
+
+# Función para iniciar sesión
+def iniciar_sesion():
+    usuario = input("Usuario: ")
+    contraseña = input("Contraseña: ")
+    cursor = mydb.cursor()
+    cursor.execute("SELECT * FROM usuarios WHERE usuario = %s AND contraseña = %s", (usuario, contraseña))
+    resultado = cursor.fetchone()
+    if resultado:
+        print("¡Inicio de sesión exitoso para el usuario con ID:", resultado[0], "!")
+        juego_ahorcado(resultado[0])  # Pasamos el ID del usuario al juego
+    else:
+        print("¡Nombre de usuario o contraseña incorrectos!")
+
+# Función para seleccionar una palabra
 def seleccionar_palabra():
     palabras = ["ordenador"]
     return random.choice(palabras)
 
-#Muestra la palabra cambiando los caracteres por "_ ".
+# Función para mostrar la palabra con letras adivinadas
 def mostrar_palabra(palabra, letras_adivinadas):
     resultado = ""
     for letra in palabra:
@@ -25,38 +46,51 @@ def mostrar_palabra(palabra, letras_adivinadas):
             resultado += "_ "
     return resultado
 
-#Insertaremos las letras.
+# Función para insertar una letra
 def adivinar_letra():
     letra = input("Adivina una letra: ")
     return letra
 
-#Empieza el juego
-def juego_ahorcado():
+# Función para el juego del ahorcado
+def juego_ahorcado(usuario_id):
     palabra = seleccionar_palabra()
     letras_adivinadas = []
     intentos = 10
-    
- #mientras aun queden intentos te dejara seguir.
+
     while intentos > 0:
         print(mostrar_palabra(palabra, letras_adivinadas))
         letra = adivinar_letra()
 
-#Si la letra es adivinada cambia el caracter correspondiente por la letra, si la letra ya esta en uso te avisa y te deja seguir intentandolo y al adivinar todas las letras te felicita.
         if letra in letras_adivinadas:
-            print("Ya has usado esa letra. Intenta de nuevo.")
+            print("¡Ya has usado esa letra! Intenta de nuevo.")
         elif letra in palabra:
             letras_adivinadas.append(letra)
             if set(palabra) == set(letras_adivinadas):
-                print("¡Felicidades! La palabra era: " + palabra)
+                print("¡Felicidades! Has adivinado la palabra: " + palabra)
+                cursor = mydb.cursor()
+                cursor.execute("UPDATE usuarios SET victorias = victorias + 1 WHERE id = %s", (usuario_id,))
+                mydb.commit()
                 break
-              
-#Si nos equivocamos nos resta un intento.
         else:
             intentos -= 1
-            print("Incorrecto. Quedan {} intentos.".format(intentos))
-            
-#Si nos quedamos sin intentos nos enseña cual era la palabra.
-    if intentos == 0:
-        print("Fin del juego. La palabra era: " + palabra)
+            print("Incorrecto. Te quedan {} intentos.".format(intentos))
 
-juego_ahorcado()
+    if intentos == 0:
+        print("¡Oh no! Te has quedado sin intentos. La palabra era: " + palabra)
+        cursor = mydb.cursor()
+        cursor.execute("UPDATE usuarios SET intentos = intentos + 1 WHERE id = %s", (usuario_id,))
+        mydb.commit()
+
+# Código para el menú de inicio
+while True:
+    print("1. Crear cuenta")
+    print("2. Iniciar sesión")
+    opcion = input("Elige una opción: ")
+
+    if opcion == "1":
+        id_usuario = input("Ingresa el ID del usuario: ")
+        crear_cuenta(id_usuario)
+    elif opcion == "2":
+        iniciar_sesion()
+    else:
+        print("Opción no válida. Inténtalo de nuevo.")
