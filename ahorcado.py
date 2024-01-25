@@ -14,8 +14,10 @@ mydb = mysql.connector.connect(
 def crear_cuenta(id_usuario):
     usuario = input("Ingresa un nombre de usuario: ")
     contraseña = input("Ingresa una contraseña: ")
+    # Generamos el hash de la contraseña usando <link>hashlib</link>
+    hash_contraseña = hashlib.sha256(contraseña.encode()).hexdigest()
     cursor = mydb.cursor()
-    cursor.execute("INSERT INTO usuarios (id, usuario, contraseña, intentos, victorias) VALUES (%s, %s, %s, %s, %s)", (id_usuario, usuario, contraseña, 0, 0))
+    cursor.execute("INSERT INTO usuarios (id, usuario, contraseña, intentos, victorias) VALUES (%s, %s, %s, %s, %s)", (id_usuario, usuario, hash_contraseña, 0, 0))
     mydb.commit()
     print("¡Cuenta creada con éxito!")
 
@@ -24,9 +26,9 @@ def iniciar_sesion():
     usuario = input("Usuario: ")
     contraseña = input("Contraseña: ")
     cursor = mydb.cursor()
-    cursor.execute("SELECT * FROM usuarios WHERE usuario = %s AND contraseña = %s", (usuario, contraseña))
+    cursor.execute("SELECT * FROM usuarios WHERE usuario = %s", (usuario,))
     resultado = cursor.fetchone()
-    if resultado:
+    if resultado and resultado[2] == hashlib.sha256(contraseña.encode()).hexdigest():
         print("¡Inicio de sesión exitoso para el usuario con ID:", resultado[0], "!")
         juego_ahorcado(resultado[0])  # Pasamos el ID del usuario al juego
     else:
