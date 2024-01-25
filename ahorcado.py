@@ -14,7 +14,7 @@ mydb = mysql.connector.connect(
 def crear_cuenta(id_usuario):
     usuario = input("Ingresa un nombre de usuario: ")
     contraseña = input("Ingresa una contraseña: ")
-    # Generamos el hash de la contraseña usando <link>hashlib</link>
+    # Generamos el hash de la contraseña usando "hashlib"
     hash_contraseña = hashlib.sha256(contraseña.encode()).hexdigest()
     cursor = mydb.cursor()
     cursor.execute("INSERT INTO usuarios (id, usuario, contraseña, intentos, victorias) VALUES (%s, %s, %s, %s, %s)", (id_usuario, usuario, hash_contraseña, 0, 0))
