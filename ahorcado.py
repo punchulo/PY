@@ -4,9 +4,9 @@ import mysql.connector
 
 # Establecemos la conexión a la base de datos "ahorcado"
 mydb = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="stitch2012",
+    host=" ",
+    user=" ",
+    password=" ",
     database="ahorcado",
 )
     
