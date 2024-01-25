@@ -1,3 +1,4 @@
+import crypt
 import random
 import mysql.connector
 
@@ -13,8 +14,11 @@ mydb = mysql.connector.connect(
 def crear_cuenta(id_usuario):
     usuario = input("Ingresa un nombre de usuario: ")
     contraseña = input("Ingresa una contraseña: ")
+    # Ciframos la contraseña usando el módulo crypt
+    salt = crypt.mksalt(crypt.METHOD_SHA512)
+    contraseña_cifrada = crypt.crypt(contraseña, salt)
     cursor = mydb.cursor()
-    cursor.execute("INSERT INTO usuarios (id, usuario, contraseña, intentos, victorias) VALUES (%s, %s, %s, %s, %s)", (id_usuario, usuario, contraseña, 0, 0))
+    cursor.execute("INSERT INTO usuarios (id, usuario, contraseña, intentos, victorias) VALUES (%s, %s, %s, %s, %s)", (id_usuario, usuario, contraseña_cifrada, 0, 0))
     mydb.commit()
     print("¡Cuenta creada con éxito!")
 
@@ -23,14 +27,25 @@ def iniciar_sesion():
     usuario = input("Usuario: ")
     contraseña = input("Contraseña: ")
     cursor = mydb.cursor()
-    cursor.execute("SELECT * FROM usuarios WHERE usuario = %s AND contraseña = %s", (usuario, contraseña))
+    cursor.execute("SELECT * FROM usuarios WHERE usuario = %s", (usuario,))
     resultado = cursor.fetchone()
-    if resultado:
+    if resultado and crypt.crypt(contraseña, resultado[2]) == resultado[2]:
         print("¡Inicio de sesión exitoso para el usuario con ID:", resultado[0], "!")
         juego_ahorcado(resultado[0])  # Pasamos el ID del usuario al juego
     else:
         print("¡Nombre de usuario o contraseña incorrectos!")
 
+# Función para eliminar una cuenta
+def eliminar_cuenta(id_usuario):
+    confirmacion = input("¿Estás seguro de que deseas eliminar tu cuenta? (Sí/No): ")
+    if confirmacion.lower() == "si":
+        cursor = mydb.cursor()
+        cursor.execute("DELETE FROM usuarios WHERE id = %s", (id_usuario,))
+        mydb.commit()
+        print("¡Tu cuenta ha sido eliminada con éxito!")
+    else:
+        print("Operación de eliminación cancelada.")
+        
 # Función para eliminar una cuenta
 def eliminar_cuenta(id_usuario):
     confirmacion = input("¿Estás seguro de que deseas eliminar tu cuenta? (Sí/No): ")
