@@ -1,4 +1,3 @@
-import hashlib
 import random
 import mysql.connector
 
@@ -14,10 +13,8 @@ mydb = mysql.connector.connect(
 def crear_cuenta(id_usuario):
     usuario = input("Ingresa un nombre de usuario: ")
     contraseña = input("Ingresa una contraseña: ")
-    # Cifrar la contraseña utilizando MD5
-    contraseña_cifrada = hashlib.md5(contraseña.encode()).hexdigest()
     cursor = mydb.cursor()
-    cursor.execute("INSERT INTO usuarios (id, usuario, contraseña, intentos, victorias) VALUES (%s, %s, %s, %s, %s)", (id_usuario, usuario, contraseña_cifrada, 0, 0))
+    cursor.execute("INSERT INTO usuarios (id, usuario, contraseña, intentos, victorias) VALUES (%s, %s, %s, %s, %s)", (id_usuario, usuario, contraseña, 0, 0))
     mydb.commit()
     print("¡Cuenta creada con éxito!")
 
@@ -25,17 +22,15 @@ def crear_cuenta(id_usuario):
 def iniciar_sesion():
     usuario = input("Usuario: ")
     contraseña = input("Contraseña: ")
-    # Cifrar la contraseña ingresada para comparar con la almacenada
-    contraseña_cifrada = hashlib.md5(contraseña.encode()).hexdigest()
     cursor = mydb.cursor()
-    cursor.execute("SELECT * FROM usuarios WHERE usuario = %s AND contraseña = %s", (usuario, contraseña_cifrada))
+    cursor.execute("SELECT * FROM usuarios WHERE usuario = %s AND contraseña = %s", (usuario, contraseña))
     resultado = cursor.fetchone()
     if resultado:
         print("¡Inicio de sesión exitoso para el usuario con ID:", resultado[0], "!")
         juego_ahorcado(resultado[0])  # Pasamos el ID del usuario al juego
     else:
         print("¡Nombre de usuario o contraseña incorrectos!")
-        
+
 # Función para eliminar una cuenta
 def eliminar_cuenta(id_usuario):
     confirmacion = input("¿Estás seguro de que deseas eliminar tu cuenta? (Sí/No): ")
