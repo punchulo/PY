@@ -1,2 +1,0 @@
-# PY
-Proyecto del ahoracado
