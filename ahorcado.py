@@ -31,6 +31,17 @@ def iniciar_sesion():
     else:
         print("¡Nombre de usuario o contraseña incorrectos!")
 
+# Función para eliminar una cuenta
+def eliminar_cuenta(id_usuario):
+    confirmacion = input("¿Estás seguro de que deseas eliminar tu cuenta? (Sí/No): ")
+    if confirmacion.lower() == "si":
+        cursor = mydb.cursor()
+        cursor.execute("DELETE FROM usuarios WHERE id = %s", (id_usuario,))
+        mydb.commit()
+        print("¡Tu cuenta ha sido eliminada con éxito!")
+    else:
+        print("Operación de eliminación cancelada.")
+        
 # Función para seleccionar una palabra
 def seleccionar_palabra():
     palabras = ["ordenador"]
@@ -85,6 +96,8 @@ def juego_ahorcado(usuario_id):
 while True:
     print("1. Crear cuenta")
     print("2. Iniciar sesión")
+    print("3. Eliminar cuenta")
+
     opcion = input("Elige una opción: ")
 
     if opcion == "1":
@@ -92,5 +105,8 @@ while True:
         crear_cuenta(id_usuario)
     elif opcion == "2":
         iniciar_sesion()
+    elif opcion == "3":
+        id_usuario = input("Ingresa tu ID de usuario: ")
+        eliminar_cuenta(id_usuario)
     else:
         print("Opción no válida. Inténtalo de nuevo.")
