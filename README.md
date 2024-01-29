@@ -27,6 +27,19 @@ mydb = mysql.connector.connect(
 )
 ```
 -Run the .py file.
+
+## Additional Notes
+
+In addition to the core functionality, the project includes the following aspects:
+- Password Encryption: The project uses the "hashlib" library to encrypt user passwords. When entering a password to create an account, a hash of it is generated using "sha256" from the hashlib module, ensuring the security of the passwords stored in the database.
+
+- Database Structure: The database used in the project has a simple structure, with only a few tables receiving the minimal information necessary for the game. This contributes to maintaining a focused and efficient database for the specific purpose of the "Hangman/Ahorcado" game.
+
+- Game Features: The "Hangman/Ahorcado" game implements several key features, such as user account creation, login, account deletion, selection of random words, letter guessing, and the hangman game itself. These features provide a complete experience for users, from creating accounts to interacting with the game itself.
+
+- Python Modules: The project makes use of various Python modules and libraries, such as hashlib for encryption, random for random word generation, and mysql.connector for connection and manipulation of the MySQL database.
+
+  
 ## 🔗 Links
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/pablo-garcia-bermejo-lopez-168020239/)
 [![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/punchis_0)
