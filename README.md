@@ -60,9 +60,12 @@ Beyond the core functionality, the project encompasses the following features:
 
 ## 🔗 Links
 
-- [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/pablo-garcia-bermejo-lopez-168020239/)
-- [![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/punchis_0)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/pablo-garcia-bermejo-lopez-168020239/)
+[![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/punchis_0)
 
 ## License
 
-This work is licensed under CC BY-NC-SA 4.0. Refer to [Creative Commons](http://creativecommons.org/licenses/by-nc-sa/4.0/) for details.
+## License
+
+This work is licensed under [![CC BY-NC-SA 4.0](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/). Refer to [Creative Commons](http://creativecommons.org/licenses/by-nc-sa/4.0/) for details.
+
