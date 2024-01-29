@@ -47,8 +47,9 @@ def eliminar_cuenta(id_usuario):
         
 # Función para seleccionar una palabra
 def seleccionar_palabra():
-    palabras = ["ordenador"]
+    palabras = ["ordenador", "python", "computador", "programacion", "desarrollo", "tecnologia", "inteligencia", "algoritmo", "informatica"]
     return random.choice(palabras)
+
 
 # Función para mostrar la palabra con letras adivinadas
 def mostrar_palabra(palabra, letras_adivinadas):
