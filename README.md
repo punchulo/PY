@@ -37,6 +37,5 @@ mydb = mysql.connector.connect(
 - [@Punchulo](https://www.github.com/punchulo)
 
 ## License
-![common](https://ascolbi.org/images/newsletter/by-nc-sa.png)
 
 This work is licensed under CC BY-NC-SA 4.0. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/
