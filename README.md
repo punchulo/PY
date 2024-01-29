@@ -67,5 +67,8 @@ Beyond the core functionality, the project encompasses the following features:
 
 ## License
 
-This work is licensed under [![CC BY-NC-SA 4.0](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/). Refer to [Creative Commons](http://creativecommons.org/licenses/by-nc-sa/4.0/) for details.
+## License
+
+This work is licensed under [![CC BY-NC-SA 4.0](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/).  
+View the [license details](http://creativecommons.org/licenses/by-nc-sa/4.0/).
 
