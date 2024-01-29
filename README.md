@@ -15,7 +15,7 @@ Experience the classic "Hangman" game brought to life in Python, enriched with a
 
 ## Deployment
 
-1. **Create the Database: [ahorcado](https://github.com/punchulo/PY/blob/main/ahorcado_usuarios.sql).**
+1. **Create the Database: [ahorcado](https://github.com/punchulo/PY/blob/main/ahorcado.sql).**
 2. **Set Up the Virtual Environment and Install Dependencies.**
     ```bash
     python -m venv venv
