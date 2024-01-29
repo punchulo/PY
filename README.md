@@ -8,9 +8,10 @@ Experience the classic "Hangman" game brought to life in Python, enriched with a
 
 ## Screenshots
 
-![Hangman](https://github.com/punchulo/PY/assets/63676351/250bde05-3028-4a78-8d28-4778599b170f)
+![Ahorcado](https://github.com/punchulo/PY/assets/63676351/250bde05-3028-4a78-8d28-4778599b170f)
 
-![Game](https://github.com/punchulo/PY/assets/63676351/791d5ec0-3484-4cbe-bc79-f565815005a3)
+![Juego](https://github.com/punchulo/PY/assets/63676351/791d5ec0-3484-4cbe-bc79-f565815005a3)
+
 
 ## Deployment
 
