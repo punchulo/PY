@@ -4,9 +4,9 @@ import mysql.connector
 
 # Establecemos la conexión a la base de datos "ahorcado"
 mydb = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="stitch2012",
+    host=" ",
+    user=" ",
+    password=" ",
     database="ahorcado",
 )
     
@@ -49,6 +49,7 @@ def eliminar_cuenta(id_usuario):
 def seleccionar_palabra():
     palabras = ["ordenador", "python", "computador", "programacion", "desarrollo", "tecnologia", "inteligencia", "algoritmo", "informatica"]
     return random.choice(palabras)
+
 
 # Función para mostrar la palabra con letras adivinadas
 def mostrar_palabra(palabra, letras_adivinadas):
