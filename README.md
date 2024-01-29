@@ -4,7 +4,7 @@ Developed by [@Punchulo](https://www.github.com/punchulo)
 
 ## Overview
 
-This project combines the classic "Hangman" game implemented in Python with a MySQL database connection and password encryption for enhanced security. By integrating these elements, we create an interactive and secure gaming experience for users, ensuring the integrity of stored data in the database.
+Experience the classic "Hangman" game brought to life in Python, enriched with a MySQL database connection and robust password encryption for heightened security. The amalgamation of these elements ensures an engaging and secure gaming experience, guaranteeing the integrity of stored data in the database.
 
 ## Screenshots
 
@@ -14,14 +14,14 @@ This project combines the classic "Hangman" game implemented in Python with a My
 
 ## Deployment
 
-1. **Create the database [ahorcado](https://github.com/punchulo/PY/blob/main/ahorcado_usuarios.sql).**
-2. **Set up a virtual environment and install the required packages.**
+1. **Create the Database: [ahorcado](https://github.com/punchulo/PY/blob/main/ahorcado_usuarios.sql).**
+2. **Set Up the Virtual Environment and Install Dependencies.**
     ```bash
     python -m venv venv
     source venv/bin/activate  # On Windows, use 'venv\Scripts\activate'
     pip install -r requirements.txt
     ```
-3. **In the code, provide the necessary information for the MySQL connection and encryption key.**
+3. **Configure MySQL Connection and Encryption Key in the Code.**
     ```python
     import mysql.connector
     from hashlib import sha256
@@ -42,21 +42,21 @@ This project combines the classic "Hangman" game implemented in Python with a My
 
 ## Additional Notes
 
-In addition to the core functionality, the project includes the following aspects:
+Beyond the core functionality, the project encompasses the following features:
 
-- **Password Encryption:** Utilizes the "hashlib" library to encrypt user passwords. Passwords are hashed using "sha256" from the hashlib module, ensuring secure storage in the database.
+- **Password Encryption:** Leverages the "hashlib" library to encrypt user passwords. Passwords undergo hashing using "sha256" from the hashlib module, ensuring secure storage in the database.
 
-- **Database Structure:** The project employs a simple database structure with minimal tables, focusing on essential information for the game. This contributes to maintaining an efficient and purpose-specific database.
+- **Database Structure:** Adopts a simple yet effective database structure, with minimal tables focused on essential information for the game. This maintains an efficient and purpose-specific database.
 
-- **Game Features:** Implements various features such as user account creation, login, account deletion, random word selection, letter guessing, and the Hangman game itself, providing a comprehensive gaming experience.
+- **Game Features:** Encompasses various aspects such as user account creation, login, account deletion, random word selection, letter guessing, and the Hangman game itself. This provides a holistic and immersive gaming experience.
 
-- **Python Modules:** Utilizes various Python modules and libraries, including hashlib for encryption, random for word generation, and mysql.connector for MySQL database connection and manipulation.
+- **Python Modules:** Harnesses diverse Python modules and libraries, including hashlib for encryption, random for word generation, and mysql.connector for MySQL database connection and manipulation.
 
 ## Future Enhancements
 
-1. **Leaderboard:** Implement a leaderboard to track and display the highest-scoring players.
+1. **Leaderboard:** Implement a dynamic leaderboard to track and showcase the highest-scoring players.
 
-2. **GUI:** Develop a graphical user interface to enhance the gaming experience.
+2. **GUI Enhancement:** Develop an intuitive graphical user interface to elevate the overall gaming experience.
 
 ## 🔗 Links
 - [LinkedIn](https://www.linkedin.com/in/pablo-garcia-bermejo-lopez-168020239/)
@@ -64,4 +64,4 @@ In addition to the core functionality, the project includes the following aspect
 
 ## License
 
-This work is licensed under CC BY-NC-SA 4.0. For details, visit [Creative Commons](http://creativecommons.org/licenses/by-nc-sa/4.0/).
+This work is licensed under CC BY-NC-SA 4.0. Refer to [Creative Commons](http://creativecommons.org/licenses/by-nc-sa/4.0/) for details.
