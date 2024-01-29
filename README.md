@@ -17,7 +17,7 @@ By combining these elements, the creation of a "Hangman/ahorcado" game with Pyth
 
 Create the database [ahorcado](https://github.com/punchulo/PY/blob/main/ahorcado_usuarios.sql).
 
--In the code, you put the necessary information for it to connect."
+-In the code, you place the necessary information for it to connect."
 ```bash
 mydb = mysql.connector.connect(
     host=" ", --> Host de MySQL(Suele ser localhost)
