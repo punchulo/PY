@@ -54,11 +54,9 @@ In addition to the core functionality, the project includes the following aspect
 
 ## Future Enhancements
 
-1. **Multiplayer Mode:** Introduce a multiplayer mode where users can challenge each other to a game of Hangman.
+1. **Leaderboard:** Implement a leaderboard to track and display the highest-scoring players.
 
-2. **Leaderboard:** Implement a leaderboard to track and display the highest-scoring players.
-
-3. **GUI:** Develop a graphical user interface to enhance the gaming experience.
+2. **GUI:** Develop a graphical user interface to enhance the gaming experience.
 
 ## 🔗 Links
 - [LinkedIn](https://www.linkedin.com/in/pablo-garcia-bermejo-lopez-168020239/)
