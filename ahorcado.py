@@ -4,9 +4,9 @@ import mysql.connector
 
 # Establecemos la conexión a la base de datos "ahorcado"
 mydb = mysql.connector.connect(
-    host=" ",
-    user=" ",
-    password=" ",
+    host="localhost",
+    user="root",
+    password="stitch2012",
     database="ahorcado",
 )
     
@@ -45,10 +45,20 @@ def eliminar_cuenta(id_usuario):
     else:
         print("Operación de eliminación cancelada.")
         
-# Función para seleccionar una palabra
-def seleccionar_palabra():
-    palabras = ["ordenador", "python", "computador", "programacion", "desarrollo", "tecnologia", "inteligencia", "algoritmo", "informatica"]
-    return random.choice(palabras)
+# Función para seleccionar una palabra desde la base de datos
+def seleccionar_palabra_desde_bd():
+    cursor = mydb.cursor()
+    cursor.execute("SELECT palabra FROM palabras ORDER BY RAND() LIMIT 1")
+    palabra = cursor.fetchone()[0]
+    return palabra
+
+# Función para agregar una nueva palabra a la base de datos
+def agregar_palabra():
+    nueva_palabra = input("Ingresa una nueva palabra para el juego: ")
+    cursor = mydb.cursor()
+    cursor.execute("INSERT INTO palabras (palabra) VALUES (%s)", (nueva_palabra,))
+    mydb.commit()
+    print("¡Palabra agregada con éxito!")
 
 
 # Función para mostrar la palabra con letras adivinadas
@@ -101,6 +111,7 @@ while True:
     print("1. Crear cuenta")
     print("2. Iniciar sesión")
     print("3. Eliminar cuenta")
+    print("4. Agregar palabra al juego")
 
     opcion = input("Elige una opción: ")
 
@@ -112,5 +123,7 @@ while True:
     elif opcion == "3":
         id_usuario = input("Ingresa tu ID de usuario: ")
         eliminar_cuenta(id_usuario)
+    elif opcion == "4":
+        agregar_palabra()
     else:
         print("Opción no válida. Inténtalo de nuevo.")
