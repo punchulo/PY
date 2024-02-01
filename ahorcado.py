@@ -46,7 +46,7 @@ def eliminar_cuenta(id_usuario):
         print("Operación de eliminación cancelada.")
         
 # Función para seleccionar una palabra desde la base de datos
-def seleccionar_palabra_desde_bd():
+def seleccionar_palabra():
     cursor = mydb.cursor()
     cursor.execute("SELECT palabra FROM palabras ORDER BY RAND() LIMIT 1")
     palabra = cursor.fetchone()[0]
