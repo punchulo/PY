@@ -1,5 +1,4 @@
 import hashlib
-import random
 import mysql.connector
 
 # Establecemos la conexión a la base de datos "ahorcado"
